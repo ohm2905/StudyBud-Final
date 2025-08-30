@@ -21,19 +21,28 @@ A simple Django web app for creating and joining study rooms. Users can discuss 
    cd studybud
 
 
+
 Create and activate a virtual environment:
 
 python -m venv env
 source env/bin/activate  # On Windows: env\Scripts\activate
+
+
 Install dependencies:
 
 pip install -r requirements.txt
+
+
 Run migrations:
 
 python manage.py migrate
+
+
 Start the server:
 
 python manage.py runserver
+
+
 Open in your browser:
 http://127.0.0.1:8000
 
