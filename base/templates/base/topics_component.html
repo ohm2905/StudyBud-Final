@@ -1,12 +1,16 @@
-        <h3>Browse Topic</h3>
-        <hr>
-        <div>
-            <a href="{% url 'home' %}" >All</a>
-        </div>
+<div class="mb-4" style="margin-left:-10px; max-width: 250px;">
+  <h5 class="mb-3">Browse Topics</h5>
 
-        {% for topic in topics %}
-            <div>
-                <a href="{% url 'home' %}?q={{topic.name}}" >{{topic.name}}</a>
-            </div>
-
-        {% endfor %}
+  <div class="list-group">
+    <a href="{% url 'home' %}" 
+       class="list-group-item list-group-item-action {% if request.GET.q == None %}active{% endif %}">
+       All
+    </a>
+    {% for topic in topics %}
+      <a href="{% url 'home' %}?q={{ topic.name }}" 
+         class="list-group-item list-group-item-action {% if request.GET.q == topic.name %}active{% endif %}">
+        {{ topic.name }}
+      </a>
+    {% endfor %}
+  </div>
+</div>

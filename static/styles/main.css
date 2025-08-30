@@ -1,3 +1,81 @@
-body{
-    background-color: aquamarine;
+/* Background */
+body {
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+/* List items */
+.list-group-item {
+    border: none;
+    padding: 12px 18px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+.list-group-item:hover {
+    background-color: #0984e3;
+    color: #fff;
+    transform: translateX(5px);
+}
+.list-group-item.active {
+    background-color: #6c5ce7 !important;
+    color: #fff;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Buttons */
+.btn-primary {
+    background: #0984e3;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 16px;
+    transition: all 0.3s;
+}
+.btn-primary:hover {
+    background: #74b9ff;
+    transform: scale(1.05);
+}
+
+.btn-danger {
+    border-radius: 10px;
+    padding: 6px 16px;
+    transition: all 0.3s;
+}
+.btn-danger:hover {
+    transform: scale(1.05);
+    background: #d63031;
+}
+
+/* Badges */
+.badge {
+    background: #6c5ce7 !important;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: white;
+}
+
+/* Username style */
+.username {
+    color: #0984e3;
+    font-weight: 600;
 }

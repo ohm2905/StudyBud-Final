@@ -1,12 +1,22 @@
 {% extends 'main.html' %}
 
 {% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+        <h5 class="mb-3 text-danger">⚠️ Confirm Delete</h5>
+        <p>Are you sure you want to delete <strong>"{{ obj }}"</strong>?</p>
 
-<form method="POST">
-    {% csrf_token %}
-    <p> Are you sure you want toi delete "{{obj}}"?</p>
-    <a href="{{request.META.HTTP_REFERER}}">Go back</a>
-    <input type="submit" value="Confirm" /> 
-</form>
-
-{% endblock content%}
+        <form method="POST" class="d-flex gap-2">
+            {% csrf_token %}
+            
+            <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">
+                Cancel
+            </a>
+            
+            <button type="submit" class="btn btn-danger">
+                Confirm Delete
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

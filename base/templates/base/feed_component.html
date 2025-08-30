@@ -1,13 +1,53 @@
-            {% for room in rooms %}
-                <div>
-                    {% if request.user == room.host %}
-                    <a href="{% url 'update-room' room.id %}">Edit</a>
-                    <a href="{% url 'delete-room' room.id %}">Delete</a>
-                    {% endif %}
-                    <a href="{% url 'user-profile' room.host.id %}">@{{room.host.username}}</a>
-                    <h5>{{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a></h5>
-                    <small>{{room.topic.name}}</small>
-                    <hr>
-                </div>
+{% for room in rooms %}
+    <div class="card mb-3 p-3 shadow-sm">
+        <div class="d-flex justify-content-between align-items-center">
+            <!-- Edit/Delete only for host -->
+            <div>
+                {% if request.user == room.host %}
+                    <a href="{% url 'update-room' room.id %}" 
+                       class="btn btn-outline-primary btn-sm py-0 px-2 me-1" 
+                       style="font-size: 0.75rem;" 
+                       title="Edit">
+                        ✏️
+                    </a>
+                    <a href="{% url 'delete-room' room.id %}" 
+                       class="btn btn-outline-danger btn-sm py-0 px-2" 
+                       style="font-size: 0.75rem;" 
+                       title="Delete">
+                        🗑️
+                    </a>
+                {% endif %}
+            </div>
 
-            {% endfor %}
+            <!-- Host -->
+            <div>
+                {% if room.host and room.host.id %}
+                    <a href="{% url 'user-profile' room.host.id %}" 
+                       class="text-decoration-none fw-bold">
+                       @{{ room.host.username }}
+                    </a>
+                {% else %}
+                    <span class="fw-bold text-muted">@DeletedUser</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Room Name -->
+        <h5 class="mt-2">
+            <a href="{% url 'room' room.id %}" 
+               class="text-dark text-decoration-none">
+               {{ room.name }}
+            </a>
+        </h5>
+
+        <!-- Topic as badge + created time -->
+        <div class="d-flex justify-content-between align-items-center">
+            <span class="badge rounded-pill bg-primary">
+                {{ room.topic.name }}
+            </span>
+            <small class="text-muted">{{ room.created|timesince }} ago</small>
+        </div>
+    </div>
+{% empty %}
+    <p class="text-muted">No rooms available.</p>
+{% endfor %}
