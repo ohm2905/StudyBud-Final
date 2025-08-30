@@ -17,8 +17,8 @@ A simple Django web app for creating and joining study rooms. Users can discuss 
 ## Setup
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/studybud.git
-   cd studybud
+   [git clone https://github.com/yourusername/studybud.git
+   cd studybud](https://github.com/ohm2905/StudyBud-Final)
 
 
 
