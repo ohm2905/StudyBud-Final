@@ -1,8 +1,8 @@
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 
-load_dotenv()  # Only for local development (optional)
+
+  # Only for local development (optional)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-key-for-local-only')
 
 # DEBUG should be False on Render, True locally
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = os.environ.get('RENDER') != 'true'
 
 ALLOWED_HOSTS = ['*']  # Allow all for Render
 
